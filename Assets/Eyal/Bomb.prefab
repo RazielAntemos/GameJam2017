@@ -55,6 +55,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4137054856494454}
+  - component: {fileID: 114812693577365348}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -165,6 +166,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Explosion: {fileID: 198253594555957126}
+--- !u!114 &114812693577365348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948306463437276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fafd5ba3ec763469bd096a1632a946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198253594555957126
 ParticleSystem:
   m_ObjectHideFlags: 1
