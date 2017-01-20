@@ -8,7 +8,7 @@ public class BoatResponseBehaviour : MonoBehaviour {
     void Start()
     {
         m_Rigidbody = this.GetComponent<Rigidbody>();
-        m_Rigidbody.velocity = new Vector3(3, 0, 0);
+        m_Rigidbody.velocity = transform.forward* 3;
     }
 
     // Update is called once per frame
