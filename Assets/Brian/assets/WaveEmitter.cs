@@ -19,7 +19,7 @@ public class WaveEmitter : MonoBehaviour {
         if ( m_changePositionCountdown <= 0 )
         {
             m_changePositionCountdown = s_changePositionMaxCountdown;
-            transform.position = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20));
+          //  transform.position = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20));
         }
 	}
 }

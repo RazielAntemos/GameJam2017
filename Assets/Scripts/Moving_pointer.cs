@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using XInputDotNetPure;
-using System.Collections;
 
 public class Moving_pointer : MonoBehaviour
 {
@@ -70,9 +69,8 @@ public class Moving_pointer : MonoBehaviour
         GUI.Label(new Rect(0, 0, Screen.width, Screen.height), text);
     }
 
-    private void DoKeyboardMovement()
+    private void DoKeyboardMovement() //for debug purposes
     {
-
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime * 10;
@@ -83,12 +81,11 @@ public class Moving_pointer : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.position += Vector3.forward  * moveSpeed * Time.deltaTime * 10;
+            transform.position += Vector3.forward * moveSpeed * Time.deltaTime * 10;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.position += Vector3.back * moveSpeed * Time.deltaTime*10;
+            transform.position += Vector3.back * moveSpeed * Time.deltaTime * 10;
         }
-
     }
 }
