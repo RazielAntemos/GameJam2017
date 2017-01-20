@@ -29,4 +29,10 @@ public class BoatResponseBehaviour : MonoBehaviour {
     {
 
     }
+
+    public void onReachedGoal(GoalBehavior goal)
+    {
+        //boat has reached goal, it should no longer exist...
+        Destroy(gameObject);
+    }
 }
