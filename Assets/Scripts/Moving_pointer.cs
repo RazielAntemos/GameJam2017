@@ -75,33 +75,46 @@ public class Moving_pointer : MonoBehaviour
             GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
 
-        //Applying movement to an object;
-        if (_state.DPad.Left == ButtonState.Pressed)
-        {
-            transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x - moveSpeed, transform.position.y, transform.position.z), Time.deltaTime * 10);
-        }
+        ////Applying movement to an object;
+        //if (_state.DPad.Left == ButtonState.Pressed)
+        //{
+        //    transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x - moveSpeed, transform.position.y, transform.position.z), Time.deltaTime * 10);
+        //}
 
-        if (_state.DPad.Right  == ButtonState.Pressed)
-        {
-            transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z), Time.deltaTime * 10);
-        }
+        //if (_state.DPad.Right  == ButtonState.Pressed)
+        //{
+        //    transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z), Time.deltaTime * 10);
+        //}
 
-        if (_state.DPad.Up == ButtonState.Pressed)
-        {
-            transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x , transform.position.y, transform.position.z + moveSpeed), Time.deltaTime * 10);
-        }
+        //if (_state.DPad.Up == ButtonState.Pressed)
+        //{
+        //    transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x , transform.position.y, transform.position.z + moveSpeed), Time.deltaTime * 10);
+        //}
         
-        if (_state.DPad.Down  == ButtonState.Pressed)
-        {
-            transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x , transform.position.y, transform.position.z - moveSpeed), Time.deltaTime * 10);
-        }
+        //if (_state.DPad.Down  == ButtonState.Pressed)
+        //{
+        //    transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x , transform.position.y, transform.position.z - moveSpeed), Time.deltaTime * 10);
+        //}
+
+        //  checking the borders of screen 
+        var dist = (transform.position.y - Camera.main.transform.position.y);
+        var leftLimitation = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
+        var rightLimitation = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
+
+        var upLimitation = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).z;
+        var downLimitation = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).z;
+
+        var tempx = Mathf.Clamp(transform.position.x, rightLimitation, leftLimitation);
+        var tempz = Mathf.Clamp(transform.position.z, downLimitation, upLimitation);
 
         //moving using left thumbstick
         transform.position = Vector3.Slerp(transform.position,
-            new Vector3(transform.position.x+ _state.ThumbSticks.Left.X, 
-                        transform.position.y, 
-                        transform.position.z + _state.ThumbSticks.Left.Y), Time.deltaTime * 10);
+            new Vector3(tempx + _state.ThumbSticks.Left.X, 
+                        transform.position.y,
+                        tempz + _state.ThumbSticks.Left.Y), Time.deltaTime * 10);
 
 
     }
+
+   
 }
