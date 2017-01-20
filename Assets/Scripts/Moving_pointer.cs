@@ -37,7 +37,7 @@ public class Moving_pointer : MonoBehaviour
         }
 
         //here we move the player/object
-        MoveObject();
+        DoMovement();
 
         // Set vibration according to triggers
         GamePad.SetVibration(_playerIndex, _state.Triggers.Left, _state.Triggers.Right);
@@ -59,7 +59,7 @@ public class Moving_pointer : MonoBehaviour
         GUI.Label(new Rect(0, 0, Screen.width, Screen.height), text);
     }
 
-    private void MoveObject()
+    private void DoMovement()
     {
         _prevState = _state;
         _state = GamePad.GetState(_playerIndex);
@@ -90,13 +90,17 @@ public class Moving_pointer : MonoBehaviour
         {
             transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x , transform.position.y, transform.position.z + moveSpeed), Time.deltaTime * 10);
         }
-        //if (_state.ThumbSticks .Left . == ButtonState.Pressed)
-        //{
+        
         if (_state.DPad.Down  == ButtonState.Pressed)
         {
             transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x , transform.position.y, transform.position.z - moveSpeed), Time.deltaTime * 10);
         }
-        //}
+
+        //moving using left thumbstick
+        transform.position = Vector3.Slerp(transform.position,
+            new Vector3(transform.position.x+ _state.ThumbSticks.Left.X, 
+                        transform.position.y, 
+                        transform.position.z + _state.ThumbSticks.Left.Y), Time.deltaTime * 10);
 
 
     }
