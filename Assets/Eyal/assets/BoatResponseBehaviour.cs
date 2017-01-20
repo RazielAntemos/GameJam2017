@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoatResponseBehaviour : MonoBehaviour {
-    Rigidbody m_Rigidbody;
+    public Rigidbody m_Rigidbody;
     // Use this for initialization
     void Start()
     {
@@ -21,6 +21,11 @@ public class BoatResponseBehaviour : MonoBehaviour {
     /// </summary>
     /// <param name="bonus">the bonus that is picked up</param>
     public void OnBonus(BonusBehaviour bonus)
+    {
+
+    }
+
+    public void OnBomb(BombBehaviour bomb)
     {
 
     }
