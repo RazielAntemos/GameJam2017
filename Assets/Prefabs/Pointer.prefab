@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 114075388156139890}
   - component: {fileID: 23716212921285958}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
