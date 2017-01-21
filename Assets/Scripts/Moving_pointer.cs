@@ -4,7 +4,7 @@ using XInputDotNetPure;
 public class Moving_pointer : MonoBehaviour
 {
     private bool _playerIndexSet;
-
+    public bool m_UseMouse;
     [SerializeField]
     private float moveSpeed = 1f;
 
@@ -26,6 +26,10 @@ public class Moving_pointer : MonoBehaviour
         //here we move the player/object
         DoMovement();
         DoKeyboardMovement(); //use arrows
+        if (m_UseMouse)
+        {
+            DoMouseMovement();
+        }
     }
 
     private void OnGUI()
@@ -88,4 +92,29 @@ public class Moving_pointer : MonoBehaviour
             transform.position += Vector3.back * moveSpeed * Time.deltaTime * 10;
         }
     }
+
+    /// <summary>
+    /// Allow controlling the pointer with the mouse
+    /// </summary>
+    void DoMouseMovement()
+    {
+        var mousePosition = Input.mousePosition;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Plane groundPlane=new Plane(transform.up,0);
+
+
+        float rayDistance;
+        if (groundPlane.Raycast(ray, out rayDistance))
+        {
+            transform.position = ray.GetPoint(rayDistance);
+        }
+          
+
+    }
+
+
+
+
+
 }
