@@ -1,31 +1,24 @@
 ﻿using UnityEngine;
-//using XInputDotNetPure;
 
 public class Moving_pointer : MonoBehaviour
 {
-    private bool _playerIndexSet;
-    public bool m_UseMouse;
-
     [SerializeField]
-    private float moveSpeed = 1f;
+    private bool m_UseMouse;
 
-    [SerializeField]
-    //private PlayerIndex _playerIndex;
-
-    //private GamePadState _state;
-    //private GamePadState _prevState;
+    [SerializeField] private const float moveSpeed = 1f;
 
     // Use this for initialization
     private void Start()
     {
-        // No need to initialize anything for the plugin
+        Cursor.visible = false;
+        
     }
 
     // Update is called once per frame
     private void Update()
     {
         //here we move the player/object
-        DoMovement();
+        //  DoMovement();
         DoKeyboardMovement(); //use arrows
         if (m_UseMouse)
         {
@@ -40,9 +33,6 @@ public class Moving_pointer : MonoBehaviour
 
     private void DoMovement()
     {
-        //_prevState = _state;
-        //_state = GamePad.GetState(_playerIndex);
-
         //  checking the borders of screen
         var dist = (transform.position.y - Camera.main.transform.position.y);
         var leftLimitation = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
@@ -55,13 +45,11 @@ public class Moving_pointer : MonoBehaviour
         var tempz = Mathf.Clamp(transform.position.z, downLimitation, upLimitation);
 
         //moving using left thumbstick
-       // transform.position = Vector3.Slerp(transform.position,
-            //new Vector3(tempx + _state.ThumbSticks.Left.X * moveSpeed,
-            //            transform.position.y,
-            //            tempz + _state.ThumbSticks.Left.Y * moveSpeed), Time.deltaTime * 10);
+        // transform.position = Vector3.Slerp(transform.position,
+        //new Vector3(tempx + _state.ThumbSticks.Left.X * moveSpeed,
+        //            transform.position.y,
+        //            tempz + _state.ThumbSticks.Left.Y * moveSpeed), Time.deltaTime * 10);
     }
-
-    
 
     private void DoKeyboardMovement() //for debug purposes
     {
@@ -88,7 +76,7 @@ public class Moving_pointer : MonoBehaviour
     /// </summary>
     private void DoMouseMovement()
     {
-       // var mousePosition = Input.mousePosition;
+        // var mousePosition = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         Plane groundPlane = new Plane(transform.up, 0);

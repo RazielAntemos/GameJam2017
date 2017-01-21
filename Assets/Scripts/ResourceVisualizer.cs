@@ -11,12 +11,18 @@ public enum Resources
     Silk = 4
 }
 
-
-
 public class ResourceVisualizer : MonoBehaviour
 {
-    private string _StartingResource;
-
+    private string _startingResource;
+  
+  
+    public string Resource   // the Name property
+    {
+        get
+        {
+            return _startingResource;
+        }
+    }
 
     // Use this for initialization
     private void Start()
@@ -32,26 +38,28 @@ public class ResourceVisualizer : MonoBehaviour
 
     private void DefineResource()
     {
-        _StartingResource = typeof(Resources).GetRandomEnumValue().ToString();
-        switch (_StartingResource)
+        _startingResource = typeof(Resources).GetRandomEnumValue().ToString();
+        switch (_startingResource)
         {
             case "Gold":
-                GetComponent<Renderer>().material.color = new Color(1f, 0f, 0f, 1.0f);
+                GetComponent<Renderer>().material.color = Color.yellow ;
                 break;
 
             case "Wood":
-                GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f, 1.0f);
+                GetComponent<Renderer>().material.color = Color.green ;
                 break;
 
             case "Sugar":
-                GetComponent<Renderer>().material.color = new Color(0f, 0f, 1f, 1.0f);
+                GetComponent<Renderer>().material.color = Color.red;
                 break;
 
             case "Silk":
-                GetComponent<Renderer>().material.color = new Color(1f, 1f, 0f, 1.0f);
+                GetComponent<Renderer>().material.color = Color.blue;
                 break;
         }
     }
+
+
 }
 
 public static class EnumExtensions
