@@ -9,9 +9,14 @@ public class BoatResponseBehaviour : MonoBehaviour {
 
     public Rigidbody m_Rigidbody;
 
+    public bool _allowEmitterInfluence;
     public float DebugSpeed;
     public Vector3 DebugVelocity;
+
     
+    public float _WaveStrength = 1f;
+    private bool _isCharging;
+
     // Use this for initialization
     void Start()
     {
@@ -20,12 +25,31 @@ public class BoatResponseBehaviour : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        ApplyWaves();
+    private void Update ()
+    {
+
+        ChargingInput();
         DebugVelocity = m_Rigidbody.velocity;
         DebugSpeed = DebugVelocity.magnitude;
 	}
 
+    private void ChargingInput()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            _isCharging = false;
+            ApplyWaves();
+            _WaveStrength = 1;
+
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            _isCharging = true;
+        }
+
+        if (_isCharging) _WaveStrength += 0.1f;
+    }
 
     public Vector3 CalculateWaveForce(Vector3 waveCenter)
     {
@@ -50,7 +74,7 @@ public class BoatResponseBehaviour : MonoBehaviour {
         foreach (var Emitter in Emitters)
         {
             Vector3 Force = CalculateWaveForce(Emitter.transform.position);
-            m_Rigidbody.AddForce(Force, ForceMode.Force);
+            m_Rigidbody.AddForce(Force * _WaveStrength, ForceMode.Force);
         }
     }
 

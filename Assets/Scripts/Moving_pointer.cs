@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Boo.Lang;
+using UnityEngine;
 using XInputDotNetPure;
 
 public class Moving_pointer : MonoBehaviour
@@ -10,6 +11,8 @@ public class Moving_pointer : MonoBehaviour
 
     [SerializeField]
     private PlayerIndex _playerIndex;
+
+   
 
     private GamePadState _state;
     private GamePadState _prevState;
@@ -109,7 +112,14 @@ public class Moving_pointer : MonoBehaviour
         {
             transform.position = ray.GetPoint(rayDistance);
         }
-          
+
+        if (Input.GetMouseButtonUp(0))
+        {
+           
+    
+        
+        }
+        
 
     }
 
