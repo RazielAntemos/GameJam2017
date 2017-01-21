@@ -26,10 +26,23 @@ public class WaveResponseBehavior : MonoBehaviour {
     /// </summary>
     public void ApplyWaves()
     {
-        var Emitters = GameObject.FindGameObjectsWithTag("WaveEmitter");
-        foreach (var Emitter in Emitters)
+        var Water = GameObject.FindGameObjectWithTag("Water");
+        var Behavior = Water.GetComponent<WaterBehaviour>();
+        var Waves = Behavior.GetWaves();
+
+        foreach( var Wave in Waves )
         {
-            ApplyWave(Emitter.transform.position);
+            ApplyWave(Wave);
+        }
+    }
+
+
+    public void ApplyWave( WaveObject Wave )
+    {
+        foreach( var PushingPoint in PushingPoints )
+        {
+            // TODO: Calculate force based on distance travelled (time started and propagation speed)
+
         }
     }
 

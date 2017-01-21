@@ -21,7 +21,7 @@ public class WaterBehaviour : MonoBehaviour {
         set { m_SizeZ = value; Dirty = true; }
     }
     
-    private int m_Sections = 10;
+    private int m_Sections = 40;
     private float m_SizeX = 200;
     private float m_SizeZ = 200;
 
@@ -35,7 +35,14 @@ public class WaterBehaviour : MonoBehaviour {
      */
     protected Vector3[] m_BaseNormals;
     protected int[] m_Triangles;
-    protected WaveObject[] m_Waves;
+
+    /**
+     * Stores the current objects.
+     */
+    protected List<WaveObject> m_Waves = new List<WaveObject>();
+
+
+    protected float tmpCooldown;
 
 
 	// Use this for initialization
@@ -44,6 +51,8 @@ public class WaterBehaviour : MonoBehaviour {
         GetComponent<MeshFilter>().mesh = mesh;
 
         GenerateMeshBase();
+
+        tmpCooldown = 2;
 	}
 	
 	// Update is called once per frame
@@ -52,6 +61,15 @@ public class WaterBehaviour : MonoBehaviour {
         {
             GenerateMeshBase();
             Dirty = false;
+        }
+
+        UpdateWaves();
+
+        tmpCooldown -= Time.deltaTime;
+        if( tmpCooldown <= 0 )
+        {
+            tmpCooldown = 2;
+            EmitWave(new WaveObject(new Vector3()));
         }
 	}
 
@@ -108,6 +126,29 @@ public class WaterBehaviour : MonoBehaviour {
         mesh.vertices  = m_BaseVertices;
         mesh.normals   = m_BaseNormals;
         mesh.triangles = m_Triangles;
+    }
+
+    void UpdateWaves( )
+    {
+        foreach (var Vertex in m_BaseVertices)
+        {
+            foreach (var Wave in m_Waves)
+            {
+                float Magnitude = Wave.CalcForce(Vertex);
+                Debug.DrawRay(Vertex, new Vector3(0, Magnitude, 0));
+            }
+        }
+    }
+
+    public void EmitWave( WaveObject Wave )
+    {
+        m_Waves.Add(Wave);
+    }
+
+
+    public List<WaveObject> GetWaves()
+    {
+        return new List<WaveObject>(m_Waves);
     }
 
 }
