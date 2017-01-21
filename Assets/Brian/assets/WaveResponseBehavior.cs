@@ -6,8 +6,9 @@ public class WaveResponseBehavior : MonoBehaviour {
 
     const float m_WaveResponseMagnitude = 10;
 
-    public Rigidbody  m_Rigidbody;
+    List<WaveObject> m_Waves;
 
+    public Rigidbody  m_Rigidbody;
     public GameObject[] PushingPoints;
 
     // Use this for initialization
