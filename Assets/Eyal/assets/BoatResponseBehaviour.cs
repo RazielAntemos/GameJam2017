@@ -121,7 +121,12 @@ public class BoatResponseBehaviour : MonoBehaviour
 
     public void onReachedGoal(GoalBehavior goal)
     {
-        //boat has reached goal, it should no longer exist...
-        DestroyShip();
+        //only let the right ships into the goal
+        var goalResource = goal.GetComponent<ResourceVisualizer>()._startingResource;
+        var shipResource = this.GetComponent<ResourceVisualizer>()._startingResource;
+        if (shipResource.Equals(goalResource)) { 
+            //boat has reached goal, it should no longer exist...
+            DestroyShip();
+        }
     }
 }
