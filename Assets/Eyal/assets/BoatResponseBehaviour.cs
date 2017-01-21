@@ -47,7 +47,7 @@ public class BoatResponseBehaviour : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _isCharging = false;
-            ApplyWaves();
+            //ApplyWaves();
             _WaveStrength = 2;
         }
 
