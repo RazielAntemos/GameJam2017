@@ -37,16 +37,28 @@ public class pirateBehaviour : MonoBehaviour {
         }
 	}
 
+    private void OnTriggerEnter(Collider other)
+    {
+        attackBoat(other.gameObject);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         //check if colliding with a boat
-        var boat = collision.collider.GetComponent<BoatResponseBehaviour>();
-        Debug.Log("pirates attack");
+        var collider = collision.collider.gameObject;
+        attackBoat(collider);
+    }
+
+    private void attackBoat(GameObject collider)
+    {
+        var boat = collider.GetComponent<BoatResponseBehaviour>();
+       
         if (boat != null)
         {
+            Debug.Log("pirates attack");
             m_Explosion.Stop();
             m_Explosion.Play();
-            boat.OnPirates(this);            
+            boat.OnPirates(this);
         }
     }
 }

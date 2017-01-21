@@ -27,7 +27,7 @@ public class BonusBehaviour : MonoBehaviour {
     {
         //check if colliding with a boat
         var boat = collider.GetComponent<BoatResponseBehaviour>();
-        Debug.Log("trigger");
+        Debug.Log("Bonus");
         if (boat != null)
         {
 
