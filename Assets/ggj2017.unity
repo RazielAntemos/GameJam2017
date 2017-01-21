@@ -875,6 +875,36 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: randomSeed
+      value: 2075533733
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: ShapeModule.radius
+      value: 1.23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71c51696234d0434b8c789db32868076, type: 2}
   m_IsPrefabParent: 0

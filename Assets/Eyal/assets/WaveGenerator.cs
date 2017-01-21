@@ -8,57 +8,50 @@ public class WaveGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        stopWaves();
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            emitParticles();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            stopWaves();
+            calculateWavePhysics(10);
         }
 
         if (Input.GetMouseButton(0))
         {
-            calculateWavePhysics();
+            calculateWavePhysics(1);
         }
 
     }
 
-    private void calculateWavePhysics()
+    private void calculateWavePhysics(float strength)
     {
+        m_Emitter.Emit(1+(int)(
+            Math.Pow((1+Math.Sin(Time.time*5)),2)
+            * 100*Time.deltaTime
+            ));
         var boats = GameObject.FindObjectsOfType<BoatResponseBehaviour>();
         foreach(var boat in boats)
         {
-            var boatPosition = boat.transform.position;
-            var directionToBoat = boatPosition-transform.position;
-            var distance = directionToBoat.magnitude;
-            if (distance < 20)
-            {
-                var minDistance = Mathf.Max(1, distance);
-                var force = 5000 * Time.deltaTime * directionToBoat.normalized / distance;
-                boat.m_Rigidbody.AddForce(force);
-            }
+
+            
+
+
+
+                var pushPoint = boat.transform.position + boat.transform.forward*0.5f;//pushPointChild.transform.position;
+                var directionToBoat = pushPoint - transform.position;
+                var distance = directionToBoat.magnitude;
+                if (distance < 10)
+                {
+                    var minDistance = Mathf.Max(1, distance);
+                    var force =8000*strength * Time.deltaTime * directionToBoat.normalized / (distance*distance);
+                    boat.m_Rigidbody.AddForceAtPosition(force,pushPoint);
+                }
+            
         }
     }
 
-    public void emitParticles()
-    {
-        
-    var emission= m_Emitter.emission;
-        emission.enabled = true;
-        m_Emitter.Emit(400);       
-        
-    }
-
-    public void stopWaves()
-    {
-        var emission = m_Emitter.emission;
-        emission.enabled = false;
-    }
+   
     
 }

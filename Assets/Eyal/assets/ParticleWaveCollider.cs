@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ParticleWaveCollider : MonoBehaviour 
 {
+
+    /*
     public ParticleSystem part;
     public List<ParticleCollisionEvent> collisionEvents;
     public float m_ParticleStrength = 1;
@@ -32,4 +34,5 @@ public class ParticleWaveCollider : MonoBehaviour
             i++;
         }
     }
+    */
 }
