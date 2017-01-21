@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 using XInputDotNetPure;
 
 public class BoatResponseBehaviour : MonoBehaviour
@@ -6,6 +7,8 @@ public class BoatResponseBehaviour : MonoBehaviour
     private const float m_WaveResponseMagnitude = 1000;
 
     public Rigidbody m_Rigidbody;
+
+    public PortBehaviour m_TargetPort;
 
     public bool _allowEmitterInfluence;
     public float DebugSpeed;
@@ -22,6 +25,12 @@ public class BoatResponseBehaviour : MonoBehaviour
     {
         m_Rigidbody = this.GetComponent<Rigidbody>();
         m_Rigidbody.velocity = transform.forward * 3;
+
+        //select a random port:
+        var ports = GameObject.FindObjectsOfType<PortBehaviour>();
+        m_TargetPort = ports[Random.Range(0,ports.Length-1)];
+        //navigate to random port
+        GetComponent<NavMeshAgent>().SetDestination(m_TargetPort.transform.position);
     }
 
     // Update is called once per frame
