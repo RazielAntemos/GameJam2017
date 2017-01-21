@@ -14,8 +14,8 @@ public enum Resources
 public class ResourceVisualizer : MonoBehaviour
 {
     private string _startingResource;
-  
-  
+    public GameObject[] m_ToColor;
+
     public string Resource   // the Name property
     {
         get
@@ -28,6 +28,14 @@ public class ResourceVisualizer : MonoBehaviour
     private void Start()
     {
         DefineResource();
+        if (m_ToColor == null)
+        {
+            if (m_ToColor == null || m_ToColor.Length == 0)
+            {
+                m_ToColor = new GameObject[] { this.gameObject };
+            }
+
+        }
     }
 
     // Update is called once per frame
@@ -39,23 +47,29 @@ public class ResourceVisualizer : MonoBehaviour
     private void DefineResource()
     {
         _startingResource = typeof(Resources).GetRandomEnumValue().ToString();
-        switch (_startingResource)
+        foreach (var toColor in m_ToColor)
         {
-            case "Gold":
-                GetComponent<Renderer>().material.color = Color.yellow ;
-                break;
+            var renderer = toColor.GetComponent<Renderer>();
+            Color c = Color.white;
+            switch (_startingResource)
+            {
+                case "Gold":
+                    c = Color.yellow;
+                    break;
 
-            case "Wood":
-                GetComponent<Renderer>().material.color = Color.green ;
-                break;
+                case "Wood":
+                    c = Color.green;
+                    break;
 
-            case "Sugar":
-                GetComponent<Renderer>().material.color = Color.red;
-                break;
+                case "Sugar":
+                    c = Color.red;
+                    break;
 
-            case "Silk":
-                GetComponent<Renderer>().material.color = Color.blue;
-                break;
+                case "Silk":
+                    c = Color.blue;
+                    break;
+            }
+            renderer.material.color = c;
         }
     }
 
