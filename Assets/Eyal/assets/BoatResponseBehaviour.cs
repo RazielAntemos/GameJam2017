@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 public class BoatResponseBehaviour : MonoBehaviour
 {
@@ -14,8 +14,8 @@ public class BoatResponseBehaviour : MonoBehaviour
     public float DebugSpeed;
     public Vector3 DebugVelocity;
 
-    private GamePadState state;
-    private GamePadState prevState;
+    //private GamePadState state;
+    //private GamePadState prevState;
 
     public float _WaveStrength = 1f;
     private bool _isCharging;
@@ -29,8 +29,8 @@ public class BoatResponseBehaviour : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        prevState = state;
-        state = GamePad.GetState(PlayerIndex.One);
+        //prevState = state;
+        //state = GamePad.GetState(PlayerIndex.One);
 
         //Apply wave emitter on space press or A on gamepad
         //if ((prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
