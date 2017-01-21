@@ -48,7 +48,7 @@ public class BoatResponseBehaviour : MonoBehaviour
         {
             _isCharging = false;
             ApplyWaves();
-            _WaveStrength = 1;
+            _WaveStrength = 2;
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -63,6 +63,10 @@ public class BoatResponseBehaviour : MonoBehaviour
     {
         Vector3 diff = transform.position - waveCenter;
         float r = diff.magnitude;
+        ///////////////////////////////
+        //quick hack add maximum force constraints:
+        r = Mathf.Max(1, r);
+        /////////////////////
         float r2 = Mathf.Pow(r, 2);
 
         if (1 / r2 < 0.01)
