@@ -8,7 +8,7 @@ public class BoatResponseBehaviour : MonoBehaviour
 
     public Rigidbody m_Rigidbody;
 
-    
+    WavePowerBar WaveBar;
 
     public bool _allowEmitterInfluence;
     public float DebugSpeed;
@@ -56,7 +56,8 @@ public class BoatResponseBehaviour : MonoBehaviour
             _isCharging = true;
         }
 
-        if (_isCharging) _WaveStrength += 0.1f;
+        if (_isCharging) { _WaveStrength += 0.1f;
+       }
     }
 
     public Vector3 CalculateWaveForce(Vector3 waveCenter)
