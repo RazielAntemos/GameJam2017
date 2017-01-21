@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,16 +15,38 @@ public class WaveGenerator : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            doWaves();
+            emitParticles();
         }
         if (Input.GetMouseButtonUp(0))
         {
             stopWaves();
         }
 
+        if (Input.GetMouseButton(0))
+        {
+            calculateWavePhysics();
+        }
+
     }
 
-    public void doWaves()
+    private void calculateWavePhysics()
+    {
+        var boats = GameObject.FindObjectsOfType<BoatResponseBehaviour>();
+        foreach(var boat in boats)
+        {
+            var boatPosition = boat.transform.position;
+            var directionToBoat = boatPosition-transform.position;
+            var distance = directionToBoat.magnitude;
+            if (distance < 20)
+            {
+                var minDistance = Mathf.Max(1, distance);
+                var force = 5000 * Time.deltaTime * directionToBoat.normalized / distance;
+                boat.m_Rigidbody.AddForce(force);
+            }
+        }
+    }
+
+    public void emitParticles()
     {
         
     var emission= m_Emitter.emission;

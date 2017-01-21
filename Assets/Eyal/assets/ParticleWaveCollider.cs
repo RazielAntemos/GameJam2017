@@ -25,7 +25,8 @@ public class ParticleWaveCollider : MonoBehaviour
             if (rb)
             {
                 Vector3 pos = collisionEvents[i].intersection;
-                Vector3 force = collisionEvents[i].velocity * m_ParticleStrength;
+                Vector3 force = collisionEvents[i].velocity * m_ParticleStrength+Vector3.up;
+                //rb.AddForceAtPosition(force/4,pos);
                 rb.AddForce(force);
             }
             i++;
