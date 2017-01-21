@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class pirateBehaviour : MonoBehaviour {
 
       GameObject m_Target;
-
+    public ParticleSystem m_Explosion;
     NavMeshAgent m_NavMeshAgent;
 
     // Use this for initialization
@@ -26,7 +26,7 @@ public class pirateBehaviour : MonoBehaviour {
             var distance = (boat.transform.position - transform.position).magnitude;
             if (distance < closestDistance)
             {
-                distance = closestDistance;
+                closestDistance = distance;
                 closestBoat = boat;
             }
         }
@@ -44,6 +44,8 @@ public class pirateBehaviour : MonoBehaviour {
         Debug.Log("pirates attack");
         if (boat != null)
         {
+            m_Explosion.Stop();
+            m_Explosion.Play();
             boat.OnPirates(this);            
         }
     }
