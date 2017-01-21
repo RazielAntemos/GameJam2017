@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 195925169300161232}
   - component: {fileID: 114320113865315900}
   - component: {fileID: 114122729778088248}
+  - component: {fileID: 114921539553025252}
   m_Layer: 0
   m_Name: BoatMesh
   m_TagString: Untagged
@@ -267,6 +268,18 @@ MonoBehaviour:
   PushingPoints:
   - {fileID: 1413764808435418}
   - {fileID: 1729766761904334}
+--- !u!114 &114921539553025252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249911314924516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e379ab48aa8aa540af20fbc5def175e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpeedLimit: 3
 --- !u!195 &195925169300161232
 NavMeshAgent:
   m_ObjectHideFlags: 1

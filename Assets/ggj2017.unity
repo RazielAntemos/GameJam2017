@@ -870,26 +870,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
-        type: 2}
-      propertyPath: CollisionModule.collisionMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
-        type: 2}
-      propertyPath: randomSeed
-      value: 1354271519
-      objectReference: {fileID: 0}
-    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
-        type: 2}
-      propertyPath: CollisionModule.maxCollisionShapes
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114781425207397058, guid: 71c51696234d0434b8c789db32868076,
-        type: 2}
-      propertyPath: m_ParticleStrength
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71c51696234d0434b8c789db32868076, type: 2}
   m_IsPrefabParent: 0
@@ -1600,28 +1580,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbd687d7484e0594b920d8e460e79525, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1183843925 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1090080186770938, guid: 71c51696234d0434b8c789db32868076,
-    type: 2}
-  m_PrefabInternal: {fileID: 666681530}
 --- !u!4 &1183843926 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4880600320400514, guid: 71c51696234d0434b8c789db32868076,
     type: 2}
   m_PrefabInternal: {fileID: 666681530}
---- !u!114 &1183843927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1183843925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c26074f4eb881b4cbacec58fcc1d4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Emitter: {fileID: 1812611630}
 --- !u!1 &1189455789
 GameObject:
   m_ObjectHideFlags: 0
@@ -5300,11 +5263,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f015f92ee926f14abfabcbeec1caef8, type: 2}
   m_IsPrefabParent: 0
---- !u!198 &1812611630 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
-    type: 2}
-  m_PrefabInternal: {fileID: 666681530}
 --- !u!1 &1813356554
 GameObject:
   m_ObjectHideFlags: 0

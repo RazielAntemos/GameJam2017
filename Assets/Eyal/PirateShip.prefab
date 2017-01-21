@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114895336823039046}
   - component: {fileID: 114442307183178510}
   - component: {fileID: 120581602935560434}
+  - component: {fileID: 114241528914039222}
   m_Layer: 0
   m_Name: PirateShip
   m_TagString: Untagged
@@ -215,6 +216,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1, z: 1.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114241528914039222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1151653573827766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e379ab48aa8aa540af20fbc5def175e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpeedLimit: 3
 --- !u!114 &114442307183178510
 MonoBehaviour:
   m_ObjectHideFlags: 1
