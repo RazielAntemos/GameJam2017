@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,9 +20,7 @@ public class BoatResponseBehaviour : MonoBehaviour {
     void Start()
     {
         m_Rigidbody = this.GetComponent<Rigidbody>();
-        //m_Rigidbody.velocity = transform.forward* 3;
-
-        
+        m_Rigidbody.velocity = transform.forward* 3;
     }
 
     // Update is called once per frame
@@ -60,6 +59,26 @@ public class BoatResponseBehaviour : MonoBehaviour {
             m_Rigidbody.AddForceAtPosition(force, pushPosition);
             Debug.DrawRay(pushPosition, force);
         }
+    }
+
+
+    public Vector3 CalculateWaveForce(Vector3 waveCenter)
+    {
+        Vector3 diff = transform.position - waveCenter;
+        float r = diff.magnitude;
+        float r2 = Mathf.Pow(r, 2);
+
+        if (1 / r2 < 0.01)
+        {
+            return new Vector3();
+        }
+        return diff.normalized * m_WaveResponseMagnitude / r2;
+    }
+
+    internal void OnPirates(pirateBehaviour pirateBehaviour)
+    {
+        //boat killed by pirates!
+        Destroy(gameObject);
     }
 
 
