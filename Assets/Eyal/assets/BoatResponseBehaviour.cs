@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class BoatResponseBehaviour : MonoBehaviour {
 
-    const float m_WaveResponseMagnitude = 1000;
+    const float m_WaveResponseMagnitude = 6;
 
     public Rigidbody m_Rigidbody;
+    public GameObject m_EmptyFront;
+    public GameObject m_EmptyBack;
 
     public float DebugSpeed;
     public Vector3 DebugVelocity;
+
+    public GameObject[] PushingPoints;
     
     // Use this for initialization
     void Start()
     {
         m_Rigidbody = this.GetComponent<Rigidbody>();
-        m_Rigidbody.velocity = transform.forward* 3;
+        //m_Rigidbody.velocity = transform.forward* 3;
+
+        
     }
 
     // Update is called once per frame
@@ -26,20 +32,6 @@ public class BoatResponseBehaviour : MonoBehaviour {
 	}
 
 
-    public Vector3 CalculateWaveForce(Vector3 waveCenter)
-    {
-        Vector3 diff = transform.position - waveCenter;
-        float r = diff.magnitude;
-        float r2 = Mathf.Pow(r, 2);
-
-        if (1 / r2 < 0.01)
-        {
-            return new Vector3();
-        }
-        return diff.normalized * m_WaveResponseMagnitude / r2;
-    }
-
-
     /// <summary>
     /// Applies the forces of all wave emitters currently in the scene.
     /// </summary>
@@ -48,8 +40,25 @@ public class BoatResponseBehaviour : MonoBehaviour {
         var Emitters = GameObject.FindGameObjectsWithTag("WaveEmitter");
         foreach (var Emitter in Emitters)
         {
-            Vector3 Force = CalculateWaveForce(Emitter.transform.position);
-            m_Rigidbody.AddForce(Force, ForceMode.Force);
+            ApplyWave(Emitter.transform.position);
+        }
+    }
+
+
+    public void ApplyWave(Vector3 waveCenter)
+    {
+        foreach (var PushingPoint in PushingPoints)
+        {
+            Vector3 pushPosition = PushingPoint.transform.position;
+            Vector3 diff = pushPosition - waveCenter;
+            float pushMagnitude = m_WaveResponseMagnitude / diff.magnitude;
+            var force = diff.normalized * pushMagnitude;
+
+            if (pushMagnitude < 0.05)
+                continue;
+
+            m_Rigidbody.AddForceAtPosition(force, pushPosition);
+            Debug.DrawRay(pushPosition, force);
         }
     }
 
