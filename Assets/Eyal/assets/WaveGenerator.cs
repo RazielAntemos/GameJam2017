@@ -26,9 +26,9 @@ public class WaveGenerator : MonoBehaviour {
     public void doWaves()
     {
         
-            var emission= m_Emitter.emission;
+    var emission= m_Emitter.emission;
         emission.enabled = true;
-       
+        m_Emitter.Emit(400);       
         
     }
 
