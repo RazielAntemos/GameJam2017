@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class pirateBehaviour : MonoBehaviour {
 
-      GameObject m_Target;
+    GameObject m_Target;
     public ParticleSystem m_Explosion;
     NavMeshAgent m_NavMeshAgent;
 
@@ -13,11 +13,36 @@ public class pirateBehaviour : MonoBehaviour {
     void Start () {
          m_NavMeshAgent = GetComponent<NavMeshAgent>();
         
-	}
-	
+
+    }
+
+
+    /// <summary>
+    /// Speed up the pirate ships as the level progresses
+    /// </summary>
+    public static void speedUpAllPirateShips()
+    {
+        var ships=GameObject.FindObjectsOfType<pirateBehaviour>();
+        foreach(var ship in ships)
+        {
+            ship.speedUp();
+        }
+    }
+
+    /// <summary>
+    /// Speed up the pirate ships over time
+    /// </summary>
+    public void speedUp()
+    {
+        float speedUpFactor = 1.4f;
+        m_NavMeshAgent.speed *= speedUpFactor;
+        m_NavMeshAgent.acceleration *= speedUpFactor;
+        m_NavMeshAgent.angularSpeed *= speedUpFactor;
+    }
+
 	// Update is called once per frame
 	void Update () {
-        var boats = GameObject.FindObjectsOfType<BoatResponseBehaviour>();
+       var boats = GameObject.FindObjectsOfType<BoatResponseBehaviour>();
         var closestDistance = float.MaxValue;
         BoatResponseBehaviour closestBoat = null;
         //look for the closest boat:

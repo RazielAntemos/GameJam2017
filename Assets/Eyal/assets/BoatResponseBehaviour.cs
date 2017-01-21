@@ -92,6 +92,17 @@ public class BoatResponseBehaviour : MonoBehaviour
     internal void OnPirates(pirateBehaviour pirateBehaviour)
     {
         //boat killed by pirates!
+        DestroyShip();
+
+
+
+    }
+
+    void DestroyShip()
+    {
+        //for every ship that is removed, make the level faster
+        pirateBehaviour.speedUpAllPirateShips();
+        //remove the game object
         Destroy(gameObject);
     }
 
@@ -110,6 +121,6 @@ public class BoatResponseBehaviour : MonoBehaviour
     public void onReachedGoal(GoalBehavior goal)
     {
         //boat has reached goal, it should no longer exist...
-        Destroy(gameObject);
+        DestroyShip();
     }
 }
