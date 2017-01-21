@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 114921539553025252}
   - component: {fileID: 114301153293815100}
   - component: {fileID: 114564563672362054}
+  - component: {fileID: 114962872652704478}
+  - component: {fileID: 114316089973764902}
   m_Layer: 0
   m_Name: BoatLogic
   m_TagString: Untagged
@@ -237,8 +239,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216745908345742}
-  m_LocalRotation: {x: -0, y: 0.8433846, z: -0, w: -0.53731036}
-  m_LocalPosition: {x: 14.2, y: 0, z: -11.7}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.3, y: 0, z: -3.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4662484897685588}
@@ -767,6 +769,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerSlider: {fileID: 0}
+--- !u!114 &114316089973764902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249911314924516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658791d1cc385f6429c9dd4e59a5cbc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ToColor: []
+  m_RandomizeResource: 0
 --- !u!114 &114320113865315900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -798,6 +813,7 @@ MonoBehaviour:
   - {fileID: 1384824112720232}
   - {fileID: 1660491788447554}
   - {fileID: 1914077849386882}
+  m_RandomizeResource: 1
 --- !u!114 &114578946251527662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -825,6 +841,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpeedLimit: 3
+--- !u!114 &114962872652704478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249911314924516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1aa0256f6523e4b992cbec42f67cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerSlider: {fileID: 0}
 --- !u!195 &195925169300161232
 NavMeshAgent:
   m_ObjectHideFlags: 1

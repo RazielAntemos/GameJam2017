@@ -8,15 +8,15 @@ public enum Resources
     Gold = 1,
     Wood = 2,
     Sugar = 3,
-    Silk = 4
+    Silk = 4,
 }
 
 public class ResourceVisualizer : MonoBehaviour
 {
-    private string _startingResource;
+    public Resources _startingResource;
     public GameObject[] m_ToColor;
-
-    public string Resource   // the Name property
+    public bool m_RandomizeResource = false;
+    public Resources Resource   // the Name property
     {
         get
         {
@@ -46,26 +46,31 @@ public class ResourceVisualizer : MonoBehaviour
 
     private void DefineResource()
     {
-        _startingResource = typeof(Resources).GetRandomEnumValue().ToString();
+        if (m_RandomizeResource)
+        {
+
+            _startingResource = RandomEnum<Resources>();
+
+        }
         foreach (var toColor in m_ToColor)
         {
             var renderer = toColor.GetComponent<Renderer>();
             Color c = Color.white;
             switch (_startingResource)
             {
-                case "Gold":
+                case Resources.Gold:
                     c = Color.yellow;
                     break;
 
-                case "Wood":
+                case Resources.Wood:
                     c = Color.green;
                     break;
 
-                case "Sugar":
+                case Resources.Sugar:
                     c = Color.red;
                     break;
 
-                case "Silk":
+                case Resources.Silk:
                     c = Color.blue;
                     break;
             }
@@ -73,8 +78,17 @@ public class ResourceVisualizer : MonoBehaviour
         }
     }
 
+    public T RandomEnum<T>()
+    {
+        T[] values = (T[])Enum.GetValues(typeof(T));
+        new System.Random();
+        return values[g_Random.Next(0, values.Length)];
+    }
 
+    static System.Random g_Random = new System.Random();
 }
+
+
 
 public static class EnumExtensions
 {
