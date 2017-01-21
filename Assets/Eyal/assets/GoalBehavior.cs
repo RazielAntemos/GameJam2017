@@ -16,7 +16,6 @@ public class GoalBehavior : MonoBehaviour {
         var boat = collider.GetComponent<BoatResponseBehaviour>();
         if (boat != null)
         {
-            boat.m_Rigidbody.AddExplosionForce(1000, this.transform.position, 10);
             boat.onReachedGoal(this);
         }
     }
@@ -26,7 +25,6 @@ public class GoalBehavior : MonoBehaviour {
         var boat = collision.collider.GetComponent<BoatResponseBehaviour>();
         if (boat != null)
         {
-            boat.m_Rigidbody.AddExplosionForce(1000, this.transform.position, 10);
             boat.onReachedGoal(this);           
         }
     }

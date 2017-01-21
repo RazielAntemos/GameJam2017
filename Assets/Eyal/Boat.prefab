@@ -40,14 +40,11 @@ GameObject:
   - component: {fileID: 23894804745224786}
   - component: {fileID: 54746318831877066}
   - component: {fileID: 114026087272330706}
-  - component: {fileID: 114578946251527662}
   - component: {fileID: 195925169300161232}
   - component: {fileID: 114320113865315900}
   - component: {fileID: 114122729778088248}
   - component: {fileID: 114921539553025252}
-  - component: {fileID: 114301153293815100}
   - component: {fileID: 114564563672362054}
-  - component: {fileID: 114962872652704478}
   - component: {fileID: 114316089973764902}
   m_Layer: 0
   m_Name: BoatLogic
@@ -239,8 +236,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216745908345742}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3, y: 0, z: -3.9}
+  m_LocalRotation: {x: -0, y: 0.8433846, z: -0, w: -0.53731036}
+  m_LocalPosition: {x: 14.2, y: 0, z: -11.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4662484897685588}
@@ -757,18 +754,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0, b: 0, a: 0.459}
---- !u!114 &114301153293815100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1249911314924516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1aa0256f6523e4b992cbec42f67cfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerSlider: {fileID: 0}
 --- !u!114 &114316089973764902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -780,6 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658791d1cc385f6429c9dd4e59a5cbc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startingResource: 0
   m_ToColor: []
   m_RandomizeResource: 0
 --- !u!114 &114320113865315900
@@ -805,6 +791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658791d1cc385f6429c9dd4e59a5cbc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startingResource: 5
   m_ToColor:
   - {fileID: 1476029860217146}
   - {fileID: 1476029860217146}
@@ -814,21 +801,6 @@ MonoBehaviour:
   - {fileID: 1660491788447554}
   - {fileID: 1914077849386882}
   m_RandomizeResource: 1
---- !u!114 &114578946251527662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1249911314924516}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0788f186d120d554fb89906464c70d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Rigidbody: {fileID: 54746318831877066}
-  PushingPoints:
-  - {fileID: 1413764808435418}
-  - {fileID: 1729766761904334}
 --- !u!114 &114921539553025252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -841,18 +813,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpeedLimit: 3
---- !u!114 &114962872652704478
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1249911314924516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1aa0256f6523e4b992cbec42f67cfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerSlider: {fileID: 0}
 --- !u!195 &195925169300161232
 NavMeshAgent:
   m_ObjectHideFlags: 1
