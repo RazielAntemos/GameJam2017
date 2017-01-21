@@ -80,7 +80,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 1
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -88,7 +88,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     accuratePlacement: 0
   m_NavMeshData: {fileID: 23800000, guid: 66e33a82edfbf814c839198f374637cc, type: 2}
 --- !u!1001 &56332649
@@ -961,7 +961,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4278285120878558, guid: 7b643e860ca6f9a4fba715d47459b0ee, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 38.3
+      value: 38.5
       objectReference: {fileID: 0}
     - target: {fileID: 4278285120878558, guid: 7b643e860ca6f9a4fba715d47459b0ee, type: 2}
       propertyPath: m_LocalPosition.y
@@ -969,7 +969,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4278285120878558, guid: 7b643e860ca6f9a4fba715d47459b0ee, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 10.3
+      value: 11.9
       objectReference: {fileID: 0}
     - target: {fileID: 4278285120878558, guid: 7b643e860ca6f9a4fba715d47459b0ee, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1404,7 +1404,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 1437550371}
-  m_TargetPort: {fileID: 0}
   _allowEmitterInfluence: 0
   DebugSpeed: 0
   DebugVelocity: {x: 0, y: 0, z: 0}

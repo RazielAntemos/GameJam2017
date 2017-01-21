@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114026087272330706}
   - component: {fileID: 114578946251527662}
   - component: {fileID: 195925169300161232}
+  - component: {fileID: 114320113865315900}
   m_Layer: 0
   m_Name: BoatMesh
   m_TagString: Untagged
@@ -211,7 +212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 54746318831877066}
-  m_TargetPort: {fileID: 0}
   _allowEmitterInfluence: 0
   DebugSpeed: 0
   DebugVelocity: {x: 0, y: 0, z: 0}
@@ -227,6 +227,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fafd5ba3ec763469bd096a1632a946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114320113865315900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249911314924516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5098d3b559ee2394c8bc3bb34df91d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TargetPort: {fileID: 0}
 --- !u!114 &114578946251527662
 MonoBehaviour:
   m_ObjectHideFlags: 1

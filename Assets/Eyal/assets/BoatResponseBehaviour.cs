@@ -8,7 +8,7 @@ public class BoatResponseBehaviour : MonoBehaviour
 
     public Rigidbody m_Rigidbody;
 
-    public PortBehaviour m_TargetPort;
+    
 
     public bool _allowEmitterInfluence;
     public float DebugSpeed;
@@ -23,14 +23,7 @@ public class BoatResponseBehaviour : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        m_Rigidbody = this.GetComponent<Rigidbody>();
-        m_Rigidbody.velocity = transform.forward * 3;
-
-        //select a random port:
-        var ports = GameObject.FindObjectsOfType<PortBehaviour>();
-        m_TargetPort = ports[Random.Range(0,ports.Length-1)];
-        //navigate to random port
-        GetComponent<NavMeshAgent>().SetDestination(m_TargetPort.transform.position);
+        
     }
 
     // Update is called once per frame
