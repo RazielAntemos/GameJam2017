@@ -83,6 +83,7 @@ public class pirateBehaviour : MonoBehaviour {
             Debug.Log("pirates attack");
             m_Explosion.Stop();
             m_Explosion.Play();
+            SoundEffectsBehaciour.explosion();
             boat.OnPirates(this);
         }
     }
