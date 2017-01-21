@@ -1,18 +1,16 @@
-﻿using Boo.Lang;
-using UnityEngine;
+﻿using UnityEngine;
 using XInputDotNetPure;
 
 public class Moving_pointer : MonoBehaviour
 {
     private bool _playerIndexSet;
     public bool m_UseMouse;
+
     [SerializeField]
     private float moveSpeed = 1f;
 
     [SerializeField]
     private PlayerIndex _playerIndex;
-
-   
 
     private GamePadState _state;
     private GamePadState _prevState;
@@ -99,32 +97,17 @@ public class Moving_pointer : MonoBehaviour
     /// <summary>
     /// Allow controlling the pointer with the mouse
     /// </summary>
-    void DoMouseMovement()
+    private void DoMouseMovement()
     {
-        var mousePosition = Input.mousePosition;
+       // var mousePosition = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Plane groundPlane=new Plane(transform.up,0);
-
+        Plane groundPlane = new Plane(transform.up, 0);
 
         float rayDistance;
         if (groundPlane.Raycast(ray, out rayDistance))
         {
             transform.position = ray.GetPoint(rayDistance);
         }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-           
-    
-        
-        }
-        
-
     }
-
-
-
-
-
 }

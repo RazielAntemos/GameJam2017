@@ -1,37 +1,53 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
+using XInputDotNetPure;
 
-public class BoatResponseBehaviour : MonoBehaviour {
-
-    const float m_WaveResponseMagnitude = 1000;
+public class BoatResponseBehaviour : MonoBehaviour
+{
+    private const float m_WaveResponseMagnitude = 1000;
 
     public Rigidbody m_Rigidbody;
+
+    public PortBehaviour m_TargetPort;
 
     public bool _allowEmitterInfluence;
     public float DebugSpeed;
     public Vector3 DebugVelocity;
 
-    
+    private GamePadState state;
+    private GamePadState prevState;
+
     public float _WaveStrength = 1f;
     private bool _isCharging;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         m_Rigidbody = this.GetComponent<Rigidbody>();
-        m_Rigidbody.velocity = transform.forward* 3;
+        m_Rigidbody.velocity = transform.forward * 3;
+
+        //select a random port:
+        var ports = GameObject.FindObjectsOfType<PortBehaviour>();
+        m_TargetPort = ports[Random.Range(0,ports.Length-1)];
+        //navigate to random port
+        GetComponent<NavMeshAgent>().SetDestination(m_TargetPort.transform.position);
     }
 
     // Update is called once per frame
-    private void Update ()
+    private void Update()
     {
+        prevState = state;
+        state = GamePad.GetState(PlayerIndex.One);
 
+        //Apply wave emitter on space press or A on gamepad
+        //if ((prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
+        //    || Input.GetKeyDown(KeyCode.Space)) ApplyWaves();
+
+        //charge input with mouse
         ChargingInput();
         DebugVelocity = m_Rigidbody.velocity;
         DebugSpeed = DebugVelocity.magnitude;
-	}
+    }
 
     private void ChargingInput()
     {
@@ -40,7 +56,6 @@ public class BoatResponseBehaviour : MonoBehaviour {
             _isCharging = false;
             ApplyWaves();
             _WaveStrength = 1;
-
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -64,7 +79,6 @@ public class BoatResponseBehaviour : MonoBehaviour {
         return diff.normalized * m_WaveResponseMagnitude / r2;
     }
 
-
     /// <summary>
     /// Applies the forces of all wave emitters currently in the scene.
     /// </summary>
@@ -84,19 +98,16 @@ public class BoatResponseBehaviour : MonoBehaviour {
         Destroy(gameObject);
     }
 
-
     /// <summary>
     /// Called when boat picks up a bonus
     /// </summary>
     /// <param name="bonus">the bonus that is picked up</param>
     public void OnBonus(BonusBehaviour bonus)
     {
-
     }
 
     public void OnBomb(BombBehaviour bomb)
     {
-
     }
 
     public void onReachedGoal(GoalBehavior goal)
