@@ -5032,10 +5032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UseMouse: 1
-<<<<<<< HEAD
-=======
   moveSpeed: 1
->>>>>>> origin/master
 --- !u!23 &1750280651
 MeshRenderer:
   m_ObjectHideFlags: 0
