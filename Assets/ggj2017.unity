@@ -954,6 +954,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114781425207397058, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: randomSeed
+      value: 2075533733
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
+        type: 2}
+      propertyPath: ShapeModule.radius
+      value: 1.23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71c51696234d0434b8c789db32868076, type: 2}
   m_IsPrefabParent: 0
@@ -4997,6 +5032,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UseMouse: 1
+<<<<<<< HEAD
+=======
+  moveSpeed: 1
+>>>>>>> origin/master
 --- !u!23 &1750280651
 MeshRenderer:
   m_ObjectHideFlags: 0
