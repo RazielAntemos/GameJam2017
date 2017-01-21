@@ -138,6 +138,11 @@ Prefab:
       propertyPath: m_Name
       value: Boat (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114578946251527662, guid: 53c67f775aa46c140b58c27568548a83,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
   m_IsPrefabParent: 0
@@ -331,6 +336,11 @@ Prefab:
       propertyPath: m_Name
       value: Boat (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114578946251527662, guid: 53c67f775aa46c140b58c27568548a83,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
   m_IsPrefabParent: 0
@@ -456,7 +466,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4097558133547638, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.6427876
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4097558133547638, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
       propertyPath: m_LocalRotation.z
@@ -464,7 +474,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4097558133547638, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7660445
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4097558133547638, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
       propertyPath: m_RootOrder
@@ -476,12 +486,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4097558133547638, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65138059012932434, guid: 53c67f775aa46c140b58c27568548a83,
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578946251527662, guid: 53c67f775aa46c140b58c27568548a83,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
@@ -762,6 +777,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578946251527662, guid: 53c67f775aa46c140b58c27568548a83,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53c67f775aa46c140b58c27568548a83, type: 2}
@@ -1124,6 +1144,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114895336823039046, guid: 7e5a1aaf566cf8140809a115549b6a16,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e5a1aaf566cf8140809a115549b6a16, type: 2}
   m_IsPrefabParent: 0
@@ -1184,7 +1209,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 30
+  far clip plane: 50
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -1208,7 +1233,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1351678768}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 20, z: -10}
+  m_LocalPosition: {x: 0, y: 49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1276,7 +1301,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 68
+  m_Constraints: 20
   m_CollisionDetection: 0
 --- !u!65 &1437550372
 BoxCollider:
@@ -1494,7 +1519,7 @@ Transform:
   m_GameObject: {fileID: 1640219870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.399999, y: 0, z: -1.8000007}
-  m_LocalScale: {x: 100, y: 0.01, z: 100}
+  m_LocalScale: {x: 200, y: 0.01, z: 200}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 21
