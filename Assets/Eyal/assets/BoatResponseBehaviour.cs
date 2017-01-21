@@ -48,7 +48,7 @@ public class BoatResponseBehaviour : MonoBehaviour
         {
             _isCharging = false;
             ApplyWaves();
-            _WaveStrength = 1;
+            _WaveStrength = 2;
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -64,6 +64,10 @@ public class BoatResponseBehaviour : MonoBehaviour
     {
         Vector3 diff = transform.position - waveCenter;
         float r = diff.magnitude;
+        ///////////////////////////////
+        //quick hack add maximum force constraints:
+        r = Mathf.Max(1, r);
+        /////////////////////
         float r2 = Mathf.Pow(r, 2);
 
         if (1 / r2 < 0.01)
@@ -89,6 +93,17 @@ public class BoatResponseBehaviour : MonoBehaviour
     internal void OnPirates(pirateBehaviour pirateBehaviour)
     {
         //boat killed by pirates!
+        DestroyShip();
+
+
+
+    }
+
+    void DestroyShip()
+    {
+        //for every ship that is removed, make the level faster
+        pirateBehaviour.speedUpAllPirateShips();
+        //remove the game object
         Destroy(gameObject);
     }
 
@@ -107,6 +122,6 @@ public class BoatResponseBehaviour : MonoBehaviour
     public void onReachedGoal(GoalBehavior goal)
     {
         //boat has reached goal, it should no longer exist...
-        Destroy(gameObject);
+        DestroyShip();
     }
 }

@@ -19,7 +19,7 @@ public class BombBehaviour : MonoBehaviour {
         m_Explosion.Play();
         if (boat != null)
         {
-            boat.m_Rigidbody.AddExplosionForce(1000, this.transform.position, 10);
+            boat.m_Rigidbody.AddExplosionForce(2000, this.transform.position, 10);
             boat.OnBomb(this);
             GameObject.Destroy(this.gameObject);
         }
