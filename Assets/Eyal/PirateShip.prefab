@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4153469861190984}
   - component: {fileID: 33627085954498286}
   - component: {fileID: 65746548891547990}
+  - component: {fileID: 65872641160076648}
   - component: {fileID: 23241502984494638}
   - component: {fileID: 195192404764137782}
   - component: {fileID: 114569866574837134}
@@ -87,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151653573827766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1, y: 0, z: -17.6}
+  m_LocalPosition: {x: -45.5, y: 0, z: 12.6}
   m_LocalScale: {x: 1, y: 1, z: 4}
   m_Children:
   - {fileID: 4301235287989540}
@@ -200,6 +201,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65872641160076648
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1151653573827766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1, z: 1.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114569866574837134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,7 +231,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151653573827766}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0788f186d120d554fb89906464c70d6a, type: 3}
   m_Name: 
