@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -51,6 +52,12 @@ public class BoatResponseBehaviour : MonoBehaviour {
             Vector3 Force = CalculateWaveForce(Emitter.transform.position);
             m_Rigidbody.AddForce(Force, ForceMode.Force);
         }
+    }
+
+    internal void OnPirates(pirateBehaviour pirateBehaviour)
+    {
+        //boat killed by pirates!
+        Destroy(gameObject);
     }
 
 

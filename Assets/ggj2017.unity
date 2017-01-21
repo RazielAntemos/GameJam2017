@@ -1117,11 +1117,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e5a1aaf566cf8140809a115549b6a16, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1234575259 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1249911314924516, guid: 53c67f775aa46c140b58c27568548a83,
-    type: 2}
-  m_PrefabInternal: {fileID: 159370908}
 --- !u!1 &1351678768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,43 +1714,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &2045787548 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1151653573827766, guid: 7e5a1aaf566cf8140809a115549b6a16,
-    type: 2}
-  m_PrefabInternal: {fileID: 1195840922}
---- !u!114 &2045787553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2045787548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928801a4ebc14434e957cd27f39df9d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 1234575259}
---- !u!195 &2045787554
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2045787548}
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 4
-  avoidancePriority: 50
-  m_AngularSpeed: 2
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1001 &2060255271
 Prefab:
   m_ObjectHideFlags: 0
