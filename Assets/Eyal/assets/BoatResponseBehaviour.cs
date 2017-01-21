@@ -5,16 +5,10 @@ using UnityEngine;
 
 public class BoatResponseBehaviour : MonoBehaviour {
 
-    const float m_WaveResponseMagnitude = 6;
-
     public Rigidbody m_Rigidbody;
-    public GameObject m_EmptyFront;
-    public GameObject m_EmptyBack;
 
     public float DebugSpeed;
     public Vector3 DebugVelocity;
-
-    public GameObject[] PushingPoints;
     
     // Use this for initialization
     void Start()
@@ -25,55 +19,9 @@ public class BoatResponseBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        ApplyWaves();
         DebugVelocity = m_Rigidbody.velocity;
         DebugSpeed = DebugVelocity.magnitude;
 	}
-
-
-    /// <summary>
-    /// Applies the forces of all wave emitters currently in the scene.
-    /// </summary>
-    public void ApplyWaves()
-    {
-        var Emitters = GameObject.FindGameObjectsWithTag("WaveEmitter");
-        foreach (var Emitter in Emitters)
-        {
-            ApplyWave(Emitter.transform.position);
-        }
-    }
-
-
-    public void ApplyWave(Vector3 waveCenter)
-    {
-        foreach (var PushingPoint in PushingPoints)
-        {
-            Vector3 pushPosition = PushingPoint.transform.position;
-            Vector3 diff = pushPosition - waveCenter;
-            float pushMagnitude = m_WaveResponseMagnitude / diff.magnitude;
-            var force = diff.normalized * pushMagnitude;
-
-            if (pushMagnitude < 0.05)
-                continue;
-
-            m_Rigidbody.AddForceAtPosition(force, pushPosition);
-            Debug.DrawRay(pushPosition, force);
-        }
-    }
-
-
-    public Vector3 CalculateWaveForce(Vector3 waveCenter)
-    {
-        Vector3 diff = transform.position - waveCenter;
-        float r = diff.magnitude;
-        float r2 = Mathf.Pow(r, 2);
-
-        if (1 / r2 < 0.01)
-        {
-            return new Vector3();
-        }
-        return diff.normalized * m_WaveResponseMagnitude / r2;
-    }
 
     internal void OnPirates(pirateBehaviour pirateBehaviour)
     {
