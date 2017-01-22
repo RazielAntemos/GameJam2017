@@ -84,6 +84,7 @@ public class pirateBehaviour : MonoBehaviour {
             m_Explosion.Stop();
             m_Explosion.Play();
             SoundEffectsBehaciour.explosion();
+            boat.m_Rigidbody.AddExplosionForce(BoatResponseBehaviour.ExplosionForce, this.transform.position, 10);
             boat.OnPirates(this);
         }
     }

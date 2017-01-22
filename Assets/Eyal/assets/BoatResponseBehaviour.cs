@@ -5,7 +5,9 @@ using UnityEngine.AI;
 public class BoatResponseBehaviour : MonoBehaviour
 {
     private const float m_WaveResponseMagnitude = 1000;
-    public GameObject m_EndOfGameScreen;
+     GameObject m_EndOfGameScreen;
+    bool m_OnFire = false;
+    public ParticleSystem m_FireEffect;
     public Rigidbody m_Rigidbody;
     static int m_ShipsSaved = 0;
     static int m_ShipsLost = 0;
@@ -21,6 +23,7 @@ public class BoatResponseBehaviour : MonoBehaviour
 
     public float _WaveStrength = 1f;
     private bool _isCharging;
+    internal static readonly float ExplosionForce= 2000;
 
     // Use this for initialization
     private void Start()
@@ -96,10 +99,9 @@ public class BoatResponseBehaviour : MonoBehaviour
 
     internal void OnPirates(pirateBehaviour pirateBehaviour)
     {
-        //boat killed by pirates!
-        m_ShipsLost++;
-        DestroyShip();
+        
        
+        damageShip();
 
 
     }
@@ -134,6 +136,24 @@ public class BoatResponseBehaviour : MonoBehaviour
 
     public void OnBomb(BombBehaviour bomb)
     {
+        damageShip();
+    }
+
+    private void damageShip()
+    {
+        if (!m_OnFire)
+        {
+            m_OnFire = true;
+            var fireEnabler=m_FireEffect.emission;
+            fireEnabler.enabled = true;
+        }
+        else
+        {
+            //ship allready on fire,
+            //Destroy it:
+            m_ShipsLost++;
+            DestroyShip();
+        }
     }
 
     public void onReachedGoal(GoalBehavior goal)
