@@ -41,7 +41,7 @@ public class ResourceVisualizer : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        transform.Rotate(Vector3.back, Time.deltaTime * 100);
+        //transform.Rotate(Vector3.back, Time.deltaTime * 100);
     }
 
     private void DefineResource()
