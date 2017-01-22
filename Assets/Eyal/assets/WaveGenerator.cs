@@ -28,8 +28,8 @@ public class WaveGenerator : MonoBehaviour {
     private void calculateWavePhysics(float strength)
     {
         m_Emitter.Emit(1+(int)(
-            Math.Pow((1+Math.Sin(Time.time*5)),2)
-            * 100*Time.deltaTime
+            Math.Pow((1+Math.Sin(Time.time*5)),3)
+            * 200*Time.deltaTime
             ));
         var boats = GameObject.FindObjectsOfType<BoatResponseBehaviour>();
         foreach(var boat in boats)

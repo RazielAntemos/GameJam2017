@@ -1110,7 +1110,7 @@ Prefab:
     - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
         type: 2}
       propertyPath: randomSeed
-      value: 2075533696
+      value: 899731419
       objectReference: {fileID: 0}
     - target: {fileID: 198473266030264800, guid: 71c51696234d0434b8c789db32868076,
         type: 2}
