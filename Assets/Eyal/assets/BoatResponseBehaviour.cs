@@ -5,8 +5,10 @@ using UnityEngine.AI;
 public class BoatResponseBehaviour : MonoBehaviour
 {
     private const float m_WaveResponseMagnitude = 1000;
-
+    public GameObject m_EndOfGameScreen;
     public Rigidbody m_Rigidbody;
+    static int m_ShipsSaved = 0;
+    static int m_ShipsLost = 0;
 
     WavePowerBar WaveBar;
 
@@ -23,7 +25,9 @@ public class BoatResponseBehaviour : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        
+        m_EndOfGameScreen = GameObject.FindGameObjectWithTag("EndOfGameScreen");
+         m_ShipsSaved = 0;
+         m_ShipsLost = 0;
     }
 
     // Update is called once per frame
@@ -93,8 +97,9 @@ public class BoatResponseBehaviour : MonoBehaviour
     internal void OnPirates(pirateBehaviour pirateBehaviour)
     {
         //boat killed by pirates!
+        m_ShipsLost++;
         DestroyShip();
-
+       
 
 
     }
@@ -105,6 +110,18 @@ public class BoatResponseBehaviour : MonoBehaviour
         pirateBehaviour.speedUpAllPirateShips();
         //remove the game object
         Destroy(gameObject);
+        var remainingBoats = FindObjectsOfType<BoatResponseBehaviour>();
+        if (remainingBoats==null ||1 >= remainingBoats.Length)
+        {
+            Debug.Log("Game Over");
+            m_EndOfGameScreen.SetActive(true);
+            m_EndOfGameScreen.transform.position -= new Vector3(0, 100, 0);
+            var endOfGameText = GameObject.FindGameObjectWithTag("EndOfGameText").GetComponent<TextMesh>();
+            var endMessage =((m_ShipsSaved>2)? "You wiN\n":"Try agaiN\n")+m_ShipsSaved+"/"+(m_ShipsLost+m_ShipsSaved)+"\nSaveD";
+            endOfGameText.text = endMessage;
+
+
+        }
     }
 
     /// <summary>
@@ -124,7 +141,8 @@ public class BoatResponseBehaviour : MonoBehaviour
         //only let the right ships into the goal
         var goalResource = goal.GetComponent<ResourceVisualizer>()._startingResource;
         var shipResource = this.GetComponent<ResourceVisualizer>()._startingResource;
-        if (shipResource.Equals(goalResource)) { 
+        if (shipResource.Equals(goalResource)) {
+            m_ShipsSaved++;
             //boat has reached goal, it should no longer exist...
             DestroyShip();
         }
