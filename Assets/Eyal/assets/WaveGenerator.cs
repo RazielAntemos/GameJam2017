@@ -22,7 +22,7 @@ public class WaveGenerator : MonoBehaviour {
         {
             calculateWavePhysics(1);
         }
-
+        calculateWavePhysics(1);
     }
 
     private void calculateWavePhysics(float strength)
